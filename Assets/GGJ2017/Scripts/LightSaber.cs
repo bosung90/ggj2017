@@ -16,7 +16,7 @@ public class LightSaber : MonoBehaviour {
 
     void Start() {
         line.EndPos = new Vector3(0, 0, lightSaberLength);
-        viveInput.ExplodeSaber.Subscribe(_ => {
+        viveInput.TouchPadDown.Subscribe(_ => {
             Debug.Log("TouchPad Down");
         }).AddTo(this);
     }
