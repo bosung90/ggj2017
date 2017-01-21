@@ -6,9 +6,9 @@ public class EnemyBehavior : MonoBehaviour {
     private Vector3 playerFeet;
     private Animator anim;
     // Enemy Info
-    public float MoveSpeed = 0.6f;
-    public int AttackRange = 6;
-    public int MinRange = 4;
+    public float MoveSpeed = 10;
+    public int AttackRange = 4;
+    public int MinRange = 3;
     public int AttackDamage = 1;
     //private int Health = 2;
 
@@ -46,9 +46,8 @@ public class EnemyBehavior : MonoBehaviour {
                 // So it doesn't go inside the player
                 if (Vector3.Distance(transform.position, playerFeet) <= MinRange)
                 {
-                    transform.position = transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
+                   transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
                 }
-
                 
                 anim.SetTrigger("Attack1Trigger");
             } else
