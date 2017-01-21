@@ -14,51 +14,60 @@ public class ViveInput : MonoBehaviour {
     private IObservable<Unit> applicationButtonDown;
     private IObservable<Vector2> touchPadAxis;
 
-    public IObservable<Unit> ExplodeSaber {
-        get {
-            return touchPadDown;
-        }
-    }
+    private float lightSaberLengthPercent = 1f;
+    public IObservable<float> LightSaberLengthPercentObs { get; private set; }
+    public IObservable<Unit> ExplodeSaber { get; private set; }
 
     void Awake() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
 
         touchPadDown = Observable
             .EveryUpdate()
-            .Select(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
-            .DistinctUntilChanged()
-            .Where(touchDown => touchDown)
-            .Select(_ => Unit.Default)
-            .AsObservable();
+            .Where(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+            .AsUnitObservable();
 
         hairTriggerDown = Observable
             .EveryUpdate()
-            .Select(_ => Controller.GetHairTriggerDown())
-            .DistinctUntilChanged()
-            .Where(touchDown => touchDown)
-            .Select(_ => Unit.Default)
-            .AsObservable();
+            .Where(_ => Controller.GetHairTriggerDown())
+            .AsUnitObservable();
 
         gripPressDown = Observable
             .EveryUpdate()
-            .Select(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-            .DistinctUntilChanged()
-            .Where(touchDown => touchDown)
-            .Select(_ => Unit.Default)
-            .AsObservable();
+            .Where(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+            .AsUnitObservable();
 
         applicationButtonDown = Observable
            .EveryUpdate()
-           .Select(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
-           .DistinctUntilChanged()
-           .Where(touchDown => touchDown)
-           .Select(_ => Unit.Default)
-           .AsObservable();
+           .Where(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+           .AsUnitObservable();
 
         touchPadAxis = Observable
             .EveryUpdate()
             .Select(_ => Controller.GetAxis())
             .Where(axis => axis != Vector2.zero)
             .AsObservable();
+
+        LightSaberLengthPercentObs = Observable
+            .EveryUpdate()
+            .Select(_ => Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
+            .Do(touchDown => {
+                if (touchDown) {
+                    lightSaberLengthPercent -= 1f * Time.deltaTime;
+                    if (lightSaberLengthPercent < 0f) lightSaberLengthPercent = 0f;
+                } else {
+                    lightSaberLengthPercent += 1f * Time.deltaTime;
+                    if (lightSaberLengthPercent > 1f) lightSaberLengthPercent = 1f;
+
+                }
+            })
+            .Select(_ => lightSaberLengthPercent)
+            .DistinctUntilChanged()
+            .AsObservable();
+
+        ExplodeSaber = Observable.EveryUpdate()
+            .Where(_ => Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+            .Where(_ => lightSaberLengthPercent == 0f)
+            .Do(_ => lightSaberLengthPercent = 1f)
+            .AsUnitObservable();
     }
 }
