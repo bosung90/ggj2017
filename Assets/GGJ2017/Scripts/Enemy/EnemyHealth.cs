@@ -12,7 +12,7 @@ public class EnemyHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        StartCoroutine(TakeDamage(2));
+        //StartCoroutine(TakeDamage(2));
     }
 
     // Function for taking damage
