@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using VolumetricLines;
 using UniRx;
+using UniRx.Triggers;
 
 public class LightSaber : MonoBehaviour {
 
@@ -9,15 +10,21 @@ public class LightSaber : MonoBehaviour {
     public ViveInput viveInput;
 
     private VolumetricLineBehavior line;
+    private ObservableTriggerTrigger triggerTrigger;
 
     void Awake() {
         line = GetComponent<VolumetricLineBehavior>();
+        triggerTrigger = GetComponent<ObservableTriggerTrigger>();
     }
 
     void Start() {
         line.EndPos = new Vector3(0, 0, lightSaberLength);
         viveInput.ExplodeSaber.Subscribe(_ => {
             Debug.Log("TouchPad Down");
+        }).AddTo(this);
+
+        triggerTrigger.OnTriggerEnterAsObservable().Subscribe(collider => {
+            Debug.Log("Collided with tag " + collider.tag);
         }).AddTo(this);
     }
 
