@@ -43,6 +43,7 @@ public class EnemyBehavior : MonoBehaviour {
                     anim.SetBool("Running", false);
                 }
 
+                // So it doesn't go inside the player
                 if (Vector3.Distance(transform.position, playerFeet) <= MinRange)
                 {
                     transform.position = transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
