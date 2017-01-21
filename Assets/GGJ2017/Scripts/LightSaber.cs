@@ -1,24 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using VolumetricLines;
+using UniRx;
 
 public class LightSaber : MonoBehaviour {
 
     [Range(0, 2f)]
     public float lightSaberLength = 0.7f;
+    public ViveInput viveInput;
+
     private VolumetricLineBehavior line;
 
     void Awake() {
         line = GetComponent<VolumetricLineBehavior>();
     }
 
-    // Use this for initialization
     void Start() {
         line.EndPos = new Vector3(0, 0, lightSaberLength);
+        viveInput.ExplodeSaber.Subscribe(_ => {
+            Debug.Log("TouchPad Down");
+        }).AddTo(this);
     }
 
-    // Update is called once per frame
     void Update() {
 
     }
