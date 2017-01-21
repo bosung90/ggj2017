@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour {
 
     public Transform Player;
-
+    public Animator anim;
     // Enemy Info
-    public int MoveSpeed = 5;
-    public int AttackRange = 2;
+    public float MoveSpeed = 0.6f;
+    public int AttackRange = 3;
     public int AttackDamage = 1;
     private int Health = 2;
 
@@ -31,12 +31,14 @@ public class EnemyBehavior : MonoBehaviour {
             */
             if (Vector3.Distance(transform.position, Player.position) <= AttackRange)
             {
-
+                anim.SetTrigger("Attack1Trigger");
             } else
             // If enemy is not close, move towards player
             {
                 // Assumes always looking at player and moves towards them
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+                anim.SetBool("Moving", true);
+                anim.SetBool("Running", true);
             }
             /*
             ** 
