@@ -14,8 +14,9 @@ public class EnemyBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        anim.SetBool("Moving", true);
+        anim.SetBool("Running", true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,14 +32,24 @@ public class EnemyBehavior : MonoBehaviour {
             */
             if (Vector3.Distance(transform.position, Player.position) <= AttackRange)
             {
+                if (anim.GetBool("Moving") && anim.GetBool("Running")) {
+                    anim.SetBool("Moving", false);
+                    anim.SetBool("Running", false);
+                }
+                
                 anim.SetTrigger("Attack1Trigger");
             } else
             // If enemy is not close, move towards player
             {
                 // Assumes always looking at player and moves towards them
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-                anim.SetBool("Moving", true);
-                anim.SetBool("Running", true);
+
+                if (!(anim.GetBool("Moving") && anim.GetBool("Running")))
+                {
+                    anim.SetBool("Moving", true);
+                    anim.SetBool("Running", true);
+                }
+
             }
             /*
             ** 
