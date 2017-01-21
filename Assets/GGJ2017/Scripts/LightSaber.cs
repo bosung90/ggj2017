@@ -25,6 +25,7 @@ public class LightSaber : MonoBehaviour {
 
         triggerTrigger.OnTriggerEnterAsObservable().Subscribe(collider => {
             Debug.Log("Collided with tag " + collider.tag);
+            collider.gameObject.SendMessage("ApplyDamage", 10);
         }).AddTo(this);
     }
 
