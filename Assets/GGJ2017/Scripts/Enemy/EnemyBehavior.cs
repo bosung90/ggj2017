@@ -7,7 +7,8 @@ public class EnemyBehavior : MonoBehaviour {
     private Animator anim;
     // Enemy Info
     public float MoveSpeed = 0.6f;
-    public int AttackRange = 3;
+    public int AttackRange = 6;
+    public int MinRange = 4;
     public int AttackDamage = 1;
     //private int Health = 2;
 
@@ -41,6 +42,12 @@ public class EnemyBehavior : MonoBehaviour {
                     anim.SetBool("Moving", false);
                     anim.SetBool("Running", false);
                 }
+
+                if (Vector3.Distance(transform.position, playerFeet) <= MinRange)
+                {
+                    transform.position = transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
+                }
+
                 
                 anim.SetTrigger("Attack1Trigger");
             } else
