@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
+    private int Health = 100;
 	// Use this for initialization
 	void Start () {
         
@@ -11,13 +12,13 @@ public class EnemyHealth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //StartCoroutine(TakeDamage(5));
+        StartCoroutine(TakeDamage(2));
     }
 
     // Function for taking damage
     IEnumerator TakeDamage(int damage) {
         Debug.Log("Ahhh it hurts took " + damage);
-        //this.Health -= damage;
+        this.Health -= damage;
 
         //renderer.material.color = colors[0];
         //yield WaitForSeconds(.5);
@@ -25,5 +26,10 @@ public class EnemyHealth : MonoBehaviour {
         transform.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         yield return new WaitForSeconds(1);
         transform.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+
+        if (this.Health == 0)
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
