@@ -9,7 +9,7 @@ public class EnemyBehavior : MonoBehaviour {
     public float MoveSpeed = 0.6f;
     public int AttackRange = 3;
     public int AttackDamage = 1;
-    private int Health = 2;
+    //private int Health = 2;
 
     void Awake() {
         anim = GetComponent<Animator>();
@@ -71,21 +71,22 @@ public class EnemyBehavior : MonoBehaviour {
         
 	}
 
-    // Function for taking damage
-    void TakeDamage(int damage)
-    {
-        this.Health -= damage;
-    }
+    //// Function for taking damage
+    //void TakeDamage(int damage)
+    //{
+    //    Debug.Log("Ahhh it hurts took " + damage);
+    //    this.Health -= damage;
+    //}
 
-    // Function for dying
-    void Death()
-    {
+    //// Function for dying
+    //void Death()
+    //{
 
-    }
+    //}
 
-    // Function for exploding
-    void Explode()
-    {
+    //// Function for exploding
+    //void Explode()
+    //{
 
-    }
+    //}
 }
