@@ -30,7 +30,7 @@ Material:
       second: 1
     - first:
         name: _LineWidth
-      second: 0.15
+      second: 0.04
     m_Colors:
     - first:
         name: _Color

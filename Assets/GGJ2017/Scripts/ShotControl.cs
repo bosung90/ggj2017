@@ -16,7 +16,7 @@ public class ShotControl : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Laser hit " + other.gameObject.tag);
+        Debug.Log("Laser hit " + other.gameObject.tag + " and Name: " + other.gameObject.name);
         if(other.gameObject.tag == "Enemy")
         {
             other.gameObject.SendMessage("TakeDamage", 10);

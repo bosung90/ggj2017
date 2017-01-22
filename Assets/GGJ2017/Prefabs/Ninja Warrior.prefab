@@ -443,7 +443,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4758547017901062}
   - component: {fileID: 95074003112757288}
-  - component: {fileID: 114931541313729688}
   - component: {fileID: 114028873327290702}
   m_Layer: 0
   m_Name: Ninja Warrior
@@ -1613,6 +1612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb3a0627c31db047a5b7199c0aa4d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statMultiplyer: 1
   MoveSpeed: 10
   AttackRange: 4
   MinRange: 3
@@ -1628,19 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b550edae1b06e4d8dcf0761f4212fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114931541313729688
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1528130377378606}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7ef17c21ec457409514db055acb92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 95074003112757288}
-  warrior: 0
+  Health: 100
 --- !u!136 &136996160961849814
 CapsuleCollider:
   m_ObjectHideFlags: 1
