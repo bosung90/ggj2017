@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Spawnpoint : MonoBehaviour {
 
+    public float timeDelay = 10f;
     // Use this for initialization
     public GameObject spawnObj;
 	void Start () {
-        float timeDelay = 6f;
-        InvokeRepeating("spawn", 2.0f, timeDelay);
+        InvokeRepeating("spawn", 5.0f, timeDelay);
     }
 	
 	// Update is called once per frame
