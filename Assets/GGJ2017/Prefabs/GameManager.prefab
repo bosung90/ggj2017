@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8c6693541dc824eba9366b24325578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1267804415937852, guid: 7729c762f548b6a4fab0d7837e93421f, type: 2}
+  FlyingSpawnPoint: {fileID: 1267804415937852, guid: 2038932963fbdeb42b25d7b7c905bf6c,
+    type: 2}

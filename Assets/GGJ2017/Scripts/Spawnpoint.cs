@@ -39,7 +39,12 @@ public class Spawnpoint : MonoBehaviour {
 			statMultiplyer = 1.1f;
 		}
         GameObject teleInstance = Instantiate(teleportPS, transform.position, Quaternion.identity);
-		spawnObj.GetComponent<EnemyBehavior>().statMultiplyer = (float)System.Math.Round ((double)Random.Range (1.0f, statMultiplyer), 1);
+        var enemyBehaviour = spawnObj.GetComponent<EnemyBehavior>();
+        if(enemyBehaviour != null) {
+            enemyBehaviour.statMultiplyer = (float)System.Math.Round((double)Random.Range(1.0f, statMultiplyer), 1);
+        } else {
+            spawnObj.GetComponent<WaspBehavior>().statMultiplyer = (float)System.Math.Round((double)Random.Range(1.0f, statMultiplyer), 1);
+        }
         Instantiate(spawnObj, transform.position, Quaternion.identity);
 
         Destroy(teleInstance, 2);

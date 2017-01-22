@@ -1,0 +1,283 @@
+fileFormatVersion: 2
+guid: 34c5d3cc852fa7c4b8d22dae2ae44e7e
+timeCreated: 1482426635
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: back_leg1.L
+    100004: back_leg1.R
+    100006: back_leg2.L
+    100008: back_leg2.R
+    100010: back_leg3.L
+    100012: back_leg3.L_end
+    100014: back_leg3.R
+    100016: back_leg3.R_end
+    100018: bottom.1
+    100020: bottom.2
+    100022: chest
+    100024: feeler.L
+    100026: feeler.L_end
+    100028: feeler.R
+    100030: feeler.R_end
+    100032: front_leg1.L
+    100034: front_leg1.R
+    100036: front_leg2.L
+    100038: front_leg2.R
+    100040: head
+    100042: leg3.L
+    100044: leg3.L_end
+    100046: leg3.R
+    100048: leg3.R_end
+    100050: mandible.L
+    100052: mandible.L_end
+    100054: mandible.R
+    100056: mandible.R_end
+    100058: middle_leg1.L
+    100060: middle_leg1.R
+    100062: middle_leg2.L
+    100064: middle_leg2.R
+    100066: middle_leg3.L
+    100068: middle_leg3.L_end
+    100070: middle_leg3.R
+    100072: middle_leg3.R_end
+    100074: sting
+    100076: sting_end
+    100078: wasp
+    100080: //RootNode
+    100082: wing.L
+    100084: wing.L_end
+    100086: wing.R
+    100088: wing.R_end
+    400000: Armature
+    400002: back_leg1.L
+    400004: back_leg1.R
+    400006: back_leg2.L
+    400008: back_leg2.R
+    400010: back_leg3.L
+    400012: back_leg3.L_end
+    400014: back_leg3.R
+    400016: back_leg3.R_end
+    400018: bottom.1
+    400020: bottom.2
+    400022: chest
+    400024: feeler.L
+    400026: feeler.L_end
+    400028: feeler.R
+    400030: feeler.R_end
+    400032: front_leg1.L
+    400034: front_leg1.R
+    400036: front_leg2.L
+    400038: front_leg2.R
+    400040: head
+    400042: leg3.L
+    400044: leg3.L_end
+    400046: leg3.R
+    400048: leg3.R_end
+    400050: mandible.L
+    400052: mandible.L_end
+    400054: mandible.R
+    400056: mandible.R_end
+    400058: middle_leg1.L
+    400060: middle_leg1.R
+    400062: middle_leg2.L
+    400064: middle_leg2.R
+    400066: middle_leg3.L
+    400068: middle_leg3.L_end
+    400070: middle_leg3.R
+    400072: middle_leg3.R_end
+    400074: sting
+    400076: sting_end
+    400078: wasp
+    400080: //RootNode
+    400082: wing.L
+    400084: wing.L_end
+    400086: wing.R
+    400088: wing.R_end
+    4300000: wasp
+    7400000: Hit2
+    9500000: //RootNode
+    13700000: wasp
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Hit2
+      takeName: Armature|ArmatureAction.002
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/chest
+        weight: 1
+      - path: Armature/chest/back_leg1.L
+        weight: 1
+      - path: Armature/chest/back_leg1.L/back_leg2.L
+        weight: 1
+      - path: Armature/chest/back_leg1.L/back_leg2.L/back_leg3.L
+        weight: 1
+      - path: Armature/chest/back_leg1.L/back_leg2.L/back_leg3.L/back_leg3.L_end
+        weight: 1
+      - path: Armature/chest/back_leg1.R
+        weight: 1
+      - path: Armature/chest/back_leg1.R/back_leg2.R
+        weight: 1
+      - path: Armature/chest/back_leg1.R/back_leg2.R/back_leg3.R
+        weight: 1
+      - path: Armature/chest/back_leg1.R/back_leg2.R/back_leg3.R/back_leg3.R_end
+        weight: 1
+      - path: Armature/chest/bottom.1
+        weight: 1
+      - path: Armature/chest/bottom.1/bottom.2
+        weight: 1
+      - path: Armature/chest/bottom.1/bottom.2/sting
+        weight: 1
+      - path: Armature/chest/bottom.1/bottom.2/sting/sting_end
+        weight: 1
+      - path: Armature/chest/front_leg1.L
+        weight: 1
+      - path: Armature/chest/front_leg1.L/front_leg2.L
+        weight: 1
+      - path: Armature/chest/front_leg1.L/front_leg2.L/leg3.L
+        weight: 1
+      - path: Armature/chest/front_leg1.L/front_leg2.L/leg3.L/leg3.L_end
+        weight: 1
+      - path: Armature/chest/front_leg1.R
+        weight: 1
+      - path: Armature/chest/front_leg1.R/front_leg2.R
+        weight: 1
+      - path: Armature/chest/front_leg1.R/front_leg2.R/leg3.R
+        weight: 1
+      - path: Armature/chest/front_leg1.R/front_leg2.R/leg3.R/leg3.R_end
+        weight: 1
+      - path: Armature/chest/head
+        weight: 1
+      - path: Armature/chest/head/feeler.L
+        weight: 1
+      - path: Armature/chest/head/feeler.L/feeler.L_end
+        weight: 1
+      - path: Armature/chest/head/feeler.R
+        weight: 1
+      - path: Armature/chest/head/feeler.R/feeler.R_end
+        weight: 1
+      - path: Armature/chest/head/mandible.L
+        weight: 1
+      - path: Armature/chest/head/mandible.L/mandible.L_end
+        weight: 1
+      - path: Armature/chest/head/mandible.R
+        weight: 1
+      - path: Armature/chest/head/mandible.R/mandible.R_end
+        weight: 1
+      - path: Armature/chest/middle_leg1.L
+        weight: 1
+      - path: Armature/chest/middle_leg1.L/middle_leg2.L
+        weight: 1
+      - path: Armature/chest/middle_leg1.L/middle_leg2.L/middle_leg3.L
+        weight: 1
+      - path: Armature/chest/middle_leg1.L/middle_leg2.L/middle_leg3.L/middle_leg3.L_end
+        weight: 1
+      - path: Armature/chest/middle_leg1.R
+        weight: 1
+      - path: Armature/chest/middle_leg1.R/middle_leg2.R
+        weight: 1
+      - path: Armature/chest/middle_leg1.R/middle_leg2.R/middle_leg3.R
+        weight: 1
+      - path: Armature/chest/middle_leg1.R/middle_leg2.R/middle_leg3.R/middle_leg3.R_end
+        weight: 1
+      - path: Armature/chest/wing.L
+        weight: 1
+      - path: Armature/chest/wing.L/wing.L_end
+        weight: 1
+      - path: Armature/chest/wing.R
+        weight: 1
+      - path: Armature/chest/wing.R/wing.R_end
+        weight: 1
+      - path: wasp
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
