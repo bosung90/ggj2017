@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentScore.Value = 0;
+        currentState.Value = GameState.LOSE;
 		currentScore.Subscribe(score => {
 			ScoreManager.instance.incrementScore(score);
 		});
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void StartGame() {
+        currentScore.Value = 0;
         currentState.Value = GameState.PLAYING;
         GameObject newSpawn = Instantiate(spawnPoint, new Vector3(6.425321f, 1.0f, 50f), transform.rotation);
     }
@@ -50,6 +52,7 @@ public class GameManager : MonoBehaviour {
 
     public void Lose()
     {
+        currentState.Value = GameState.LOSE;
         // Stop Enemy Spawn
         GameObject[] spawn = GameObject.FindGameObjectsWithTag("spawn");
         for(int i=0; i< spawn.Length; i++)
