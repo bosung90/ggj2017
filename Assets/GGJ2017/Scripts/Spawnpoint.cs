@@ -7,6 +7,7 @@ public class Spawnpoint : MonoBehaviour {
     public float timeDelay = 10f;
     // Use this for initialization
     public GameObject spawnObj;
+    public GameObject teleportPS;
 	void Start () {
         InvokeRepeating("spawn", 5.0f, timeDelay);
     }
@@ -18,7 +19,10 @@ public class Spawnpoint : MonoBehaviour {
 
     void spawn ()
     {
+        GameObject teleInstance = Instantiate(teleportPS, transform.position, Quaternion.identity);
         Instantiate(spawnObj, transform.position, Quaternion.identity);
+        Destroy(teleInstance, 2);
+
     }
 
 }
