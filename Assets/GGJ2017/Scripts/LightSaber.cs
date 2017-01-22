@@ -7,8 +7,8 @@ using System.Collections.Generic;
 
 public class LightSaber : MonoBehaviour {
 
-    public List<AudioClip> enemyHits;
-    private AudioSource audioSource;
+    public List<AudioClip> enemyHits, swishSounds;
+    private AudioSource audioSource, swishAudioSource;
 
     [Range(0, 2f)]
     public float lightSaberFullLength = 0.7f;
@@ -32,10 +32,18 @@ public class LightSaber : MonoBehaviour {
         _collider = GetComponent<CapsuleCollider>();
         originalLightSaverFactor = _renderer.material.GetFloat("_LightSaberFactor");
         originalLightSaverLineWidth = _renderer.material.GetFloat("_LineWidth");
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponents<AudioSource>()[0];
+        swishAudioSource = GetComponents<AudioSource>()[1];
+        swishAudioSource.clip = swishSounds[UnityEngine.Random.Range(0, swishSounds.Count)];
+
     }
 
     void Start() {
+
+        viveInput.LightSaberSpeed.Subscribe(speed => {
+            swishAudioSource.volume = speed / 60f;
+        }).AddTo(this);
+
         viveInput.ExplodeSaber.Subscribe(_ => {
             FlashBang();
         }).AddTo(this);

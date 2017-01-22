@@ -21,6 +21,7 @@ public class ViveInput : MonoBehaviour {
     private float lightSaberLengthPercent = 1f;
     public IObservable<float> LightSaberLengthPercentObs { get; private set; }
     public IObservable<Unit> ExplodeSaber { get; private set; }
+    public IObservable<float> LightSaberSpeed { get; private set; }
 
     public IObservable<Unit> FireLaser
     {
@@ -32,6 +33,11 @@ public class ViveInput : MonoBehaviour {
 
     void Awake() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+
+        LightSaberSpeed = Observable
+            .EveryUpdate()
+            .Select(_ => (Controller.velocity + Controller.angularVelocity).sqrMagnitude)
+            .AsObservable();
 
         touchPadDown = Observable
             .EveryUpdate()
