@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	public void incrementScore(float f) {
-		score.Value += f;
+		score.Value = f;
 	}
 	
 	// Update is called once per frame
