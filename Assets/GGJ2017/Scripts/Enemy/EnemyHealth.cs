@@ -27,9 +27,8 @@ public class EnemyHealth : MonoBehaviour {
         yield return new WaitForSeconds(1);
         transform.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
 
-        if (this.Health == 0)
+        if (this.Health <= 0)
         {
-			GameManager.Instance.score += 1;
             Destroy(transform.parent.gameObject);
         }
     }

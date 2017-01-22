@@ -12,6 +12,8 @@ public class ViveInput : MonoBehaviour {
     private IObservable<Unit> hairTriggerDown;
     private IObservable<Unit> gripPressDown;
     private IObservable<Unit> applicationButtonDown;
+    public IObservable<Unit> applicationButtonUp { get; private set; }
+    public IObservable<Unit> applicationButton { get; private set; }
     private IObservable<Vector2> touchPadAxis;
 
     private float lightSaberLengthPercent = 1f;
@@ -40,6 +42,16 @@ public class ViveInput : MonoBehaviour {
            .EveryUpdate()
            .Where(_ => Controller.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
            .AsUnitObservable();
+
+        applicationButtonUp = Observable
+            .EveryUpdate()
+            .Where(_ => Controller.GetPressUp(SteamVR_Controller.ButtonMask.ApplicationMenu))
+            .AsUnitObservable();
+
+        applicationButton = Observable
+            .EveryUpdate()
+            .Where(_ => Controller.GetPress(SteamVR_Controller.ButtonMask.ApplicationMenu))
+            .AsUnitObservable();
 
         touchPadAxis = Observable
             .EveryUpdate()

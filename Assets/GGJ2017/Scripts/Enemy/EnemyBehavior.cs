@@ -14,15 +14,13 @@ public class EnemyBehavior : MonoBehaviour {
 
     void Awake() {
         anim = GetComponent<Animator>();
-        Player = GameObject.Find("Player").transform;
+        Player = GameObject.Find("Camera (eye)").transform;
     }
 
 	// Use this for initialization
 	void Start () {
         anim.SetBool("Moving", true);
         anim.SetBool("Running", true);
-        Player = GameObject.Find("Camera (head)").transform;
-
     }
 	
 	// Update is called once per frame
@@ -85,7 +83,7 @@ public class EnemyBehavior : MonoBehaviour {
     void AttackPlayer()
     {
         Debug.Log("Attack player!");
-        Player.GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
+        //GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
     }
 
     //// Function for taking damage
@@ -98,6 +96,7 @@ public class EnemyBehavior : MonoBehaviour {
     //// Function for Deleting Enemy
     public void DestroyEnemy()
     {
+		GameManager.Instance.setScore (1.0f);
         Destroy(transform.gameObject);
     }
 
