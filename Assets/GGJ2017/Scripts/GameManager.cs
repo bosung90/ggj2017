@@ -13,4 +13,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void StartGame() {
+        Debug.Log("Start Game !!");
+    }
 }
