@@ -2,7 +2,7 @@
 using UniRx;
 using System;
 
-public enum GameState { START, PLAYING, LOSE };
+public enum GameState { PLAYING, NOT_PLAYING };
 
 public class GameManager : MonoBehaviour {
 
@@ -15,22 +15,19 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         Instance = this;
-        currentState = new ReactiveProperty<GameState>();
-        currentScore = new ReactiveProperty<int>();
+        currentState = new ReactiveProperty<GameState>(GameState.NOT_PLAYING);
+        currentScore = new ReactiveProperty<int>(0);
     }
 
     // Use this for initialization
     void Start() {
-        currentScore.Value = 0;
-        currentState.Value = GameState.LOSE;
         currentScore.Subscribe(score => {
             ScoreManager.instance.incrementScore(score);
         });
         currentState.Subscribe(state => {
             switch (state) {
-                case GameState.START: break;
                 case GameState.PLAYING: break;
-                case GameState.LOSE: Lose(); break;
+                case GameState.NOT_PLAYING: Lose(); break;
             }
         });
     }
@@ -70,7 +67,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Lose() {
-        currentState.Value = GameState.LOSE;
+        currentState.Value = GameState.NOT_PLAYING;
         // Stop Enemy Spawn
         GameObject[] spawn = GameObject.FindGameObjectsWithTag("spawn");
         for (int i = 0; i < spawn.Length; i++) {
