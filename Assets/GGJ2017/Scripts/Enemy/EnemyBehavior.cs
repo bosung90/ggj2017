@@ -38,8 +38,6 @@ public class EnemyBehavior : MonoBehaviour {
         }
         transform.gameObject.GetComponentInChildren<Renderer>().material.SetColor("_Color", color);
         MoveSpeed *= statMultiplyer;
-        AttackRange *= statMultiplyer;
-        MinRange *= statMultiplyer;
         AttackDamage *= statMultiplyer;
         anim.SetBool("Moving", true);
         anim.SetBool("Running", true);

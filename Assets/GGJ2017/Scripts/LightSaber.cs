@@ -57,7 +57,7 @@ public class LightSaber : MonoBehaviour {
                 audioSource.time = 0.3f;
                 audioSource.Play();
 
-                collider.gameObject.SendMessage("TakeDamage", 10);
+                collider.gameObject.SendMessage("TakeDamage", 25);
             }
         }).AddTo(this);
 

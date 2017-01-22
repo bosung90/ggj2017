@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public GameObject spawnPoint;
     public GameObject FlyingSpawnPoint;
+    private AudioSource audioSource;
 
     public ReactiveProperty<GameState> currentState { get; private set; }
     public ReactiveProperty<int> currentScore { get; private set; }
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour {
         Instance = this;
         currentState = new ReactiveProperty<GameState>(GameState.NOT_PLAYING);
         currentScore = new ReactiveProperty<int>(0);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Use this for initialization
@@ -49,14 +52,14 @@ public class GameManager : MonoBehaviour {
 
         Instantiate(spawnPoint, new Vector3(UnityEngine.Random.Range(-50f, 50f), 1.0f, UnityEngine.Random.Range(-50f, 50f)), transform.rotation);
 
-        Observable.Timer(TimeSpan.FromSeconds(13f))
+        Observable.Timer(TimeSpan.FromSeconds(23f))
             .Where(_ => currentState.Value == GameState.PLAYING)
             .RepeatUntilDestroy(this)
             .Subscribe(_ => {
                 Instantiate(spawnPoint, new Vector3(UnityEngine.Random.Range(-50f, 50f), 1.0f, UnityEngine.Random.Range(-50f, 50f)), transform.rotation);
             }).AddTo(this);
 
-        Observable.Timer(TimeSpan.FromSeconds(17f))
+        Observable.Timer(TimeSpan.FromSeconds(27f))
             .Where(_ => currentState.Value == GameState.PLAYING)
             .RepeatUntilDestroy(this)
             .Subscribe(_ => {
@@ -88,6 +91,7 @@ public class GameManager : MonoBehaviour {
             Destroy(enemies[i]);
         }
 
+        audioSource.Play();
         // Trigger Score Screen
     }
 }

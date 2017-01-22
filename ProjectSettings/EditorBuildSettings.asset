@@ -6,4 +6,4 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GGJ2017/Scenes/main.unity
+    path: Assets/GGJ2017/Scenes/Environment.unity
