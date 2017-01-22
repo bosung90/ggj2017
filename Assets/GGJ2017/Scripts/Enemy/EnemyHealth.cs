@@ -22,7 +22,8 @@ public class EnemyHealth : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		part = GetComponent<ParticleSystem>();
+        transform.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        part = GetComponent<ParticleSystem>();
 		collisionEvents = new List<ParticleCollisionEvent>();
 	}
 	
@@ -38,6 +39,7 @@ public class EnemyHealth : MonoBehaviour {
         if (this.Health <= 0) {
             AudioClip clip = ninjaExplodes[Random.Range(0, ninjaExplodes.Count)];
             audioSource.clip = clip;
+            audioSource.time = 0.3f;
             audioSource.Play();
 
             GameManager.Instance.setScore(1.0f);

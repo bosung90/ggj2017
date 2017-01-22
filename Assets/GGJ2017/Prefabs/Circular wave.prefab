@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1045798156719442}
-  m_LocalRotation: {x: 0.72259694, y: -0, z: -0, w: 0.69126964}
-  m_LocalPosition: {x: -0.3, y: 1, z: 10.72}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.63, y: 7.44, z: 2.01}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 92.539, y: -0.000015258789, z: -0.000015258789}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!135 &135970800394909640
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -109,7 +109,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1194252223
+  randomSeed: -1075271251
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -501,7 +501,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 2000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -546,7 +546,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 3
     enabled: 1
-    type: 0
+    type: 11
     radius: 1
     angle: 90
     length: 5
@@ -647,19 +647,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 500
-    cnt1: 30
-    cnt2: 30
+    cnt0: 300
+    cnt1: 300
+    cnt2: 300
     cnt3: 30
-    cntmax0: 500
-    cntmax1: 30
-    cntmax2: 30
+    cntmax0: 300
+    cntmax1: 300
+    cntmax2: 300
     cntmax3: 30
     time0: 0
-    time1: 0
-    time2: 0
+    time1: 0.3
+    time2: 0.6
     time3: 0
-    m_BurstCount: 1
+    m_BurstCount: 3
   SizeModule:
     enabled: 0
     curve:
@@ -2293,7 +2293,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
-    enabled: 1
+    enabled: 0
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}

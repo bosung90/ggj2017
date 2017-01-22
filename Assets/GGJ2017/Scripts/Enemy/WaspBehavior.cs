@@ -7,7 +7,7 @@ using UnityEngine;
 public class WaspBehavior : MonoBehaviour {
 
     private Transform Player;
-    private Vector3 playerFeet;
+    private Vector3 playerHead;
     private Animator anim;
 
     public bool isReadyToAttack = true;
@@ -53,8 +53,8 @@ public class WaspBehavior : MonoBehaviour {
         AttackDamage *= statMultiplyer;
 
         Observable.EveryUpdate()
-            .Select(_ => new Vector3(Player.position.x, 0, Player.position.z))
-            .Select(playerFeet => Vector3.Distance(transform.position, playerFeet) <= AttackRange)
+            .Select(_ => new Vector3(Player.position.x, Player.position.y, Player.position.z))
+            .Select(playerHead => Vector3.Distance(transform.position, playerHead) <= AttackRange)
             .DistinctUntilChanged()
             .Where(withinAttackRange => !withinAttackRange)
             .Subscribe(withinAttackRange => {
@@ -62,8 +62,8 @@ public class WaspBehavior : MonoBehaviour {
             }).AddTo(this);
 
         Observable.EveryUpdate()
-            .Select(_ => new Vector3(Player.position.x, 0, Player.position.z))
-            .Select(playerFeet => Vector3.Distance(transform.position, playerFeet) <= AttackRange)
+            .Select(_ => new Vector3(Player.position.x, Player.position.y, Player.position.z))
+            .Select(playerHead => Vector3.Distance(transform.position, playerHead) <= AttackRange)
             .Where(withinAttackRange => withinAttackRange && isReadyToAttack)
             .Subscribe(__ => {
                 if(isReadyToAttack) {
@@ -78,13 +78,13 @@ public class WaspBehavior : MonoBehaviour {
     }
 
     void Update() {
-        playerFeet = new Vector3(Player.position.x, 0, Player.position.z);
+        playerHead = new Vector3(Player.position.x, Player.position.y, Player.position.z);
 
-        transform.LookAt(playerFeet);
+        transform.LookAt(playerHead);
 
-        if (Vector3.Distance(transform.position, playerFeet) <= AttackRange) {
-            if (Vector3.Distance(transform.position, playerFeet) <= MinRange) {
-                transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
+        if (Vector3.Distance(transform.position, playerHead) <= AttackRange) {
+            if (Vector3.Distance(transform.position, playerHead) <= MinRange) {
+                transform.position = (transform.position - playerHead).normalized * MinRange + playerHead;
             }
 
             //if (isReadyToAttack) {
