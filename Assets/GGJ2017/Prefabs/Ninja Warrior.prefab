@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 136996160961849814}
   m_Layer: 0
   m_Name: Mesh_Ninja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1410,7 +1410,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1528130377378606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.86, y: 0.20142841, z: 45.46}
+  m_LocalPosition: {x: -2.4809036, y: 0.10986996, z: 58.682327}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4125943748329840}
@@ -1650,7 +1650,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1528130377378606}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.3528407
   m_Height: 2.8183823
   m_Direction: 1

@@ -94,11 +94,7 @@ public class EnemyBehavior : MonoBehaviour {
     //}
 
     //// Function for Deleting Enemy
-    public void DestroyEnemy()
-    {
-		GameManager.Instance.setScore (1.0f);
-        Destroy(transform.gameObject);
-    }
+    
 
     //// Function for exploding
     //void Explode()

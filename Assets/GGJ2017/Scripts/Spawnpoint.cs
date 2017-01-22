@@ -22,7 +22,6 @@ public class Spawnpoint : MonoBehaviour {
         GameObject teleInstance = Instantiate(teleportPS, transform.position, Quaternion.identity);
         Instantiate(spawnObj, transform.position, Quaternion.identity);
         Destroy(teleInstance, 2);
-
     }
 
 }

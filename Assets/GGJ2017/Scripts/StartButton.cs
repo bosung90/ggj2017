@@ -18,7 +18,10 @@ public class StartButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         trigger.OnTriggerEnterAsObservable().Subscribe(collider => {
-            HandleStartTriggerEnter.Invoke();
+            if(GameManager.Instance.currentState.Value == GameState.LOSE)
+            {
+                HandleStartTriggerEnter.Invoke();
+            }
         }).AddTo(this);
     }
 	
