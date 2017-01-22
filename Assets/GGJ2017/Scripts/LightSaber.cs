@@ -34,7 +34,11 @@ public class LightSaber : MonoBehaviour {
 
         triggerTrigger.OnTriggerEnterAsObservable().Subscribe(collider => {
             Debug.Log("Collided with tag " + collider.tag);
-            collider.gameObject.SendMessage("TakeDamage", 10);
+            if(collider.tag == "Enemy")
+            {
+                collider.gameObject.transform.Find("Mesh_Ninja").gameObject.SendMessage("TakeDamage", 10);
+            }
+
         }).AddTo(this);
 
         viveInput.LightSaberLengthPercentObs.Subscribe(lengthPercent => {

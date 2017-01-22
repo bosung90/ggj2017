@@ -17,6 +17,7 @@ public class Teleport : MonoBehaviour {
     public Vector3 teleportReticleOffset;
     public LayerMask teleportMask;
     private bool shouldTeleport = false;
+
     private SteamVR_TrackedObject trackedObj;
     public GameObject laserPrefab;
     private GameObject laser;
@@ -43,6 +44,9 @@ public class Teleport : MonoBehaviour {
 
         laser = Instantiate(laserPrefab);
         laserTransform = laser.transform;
+
+        reticle = Instantiate(teleportReticlePrefab);
+        teleportReticleTransform = reticle.transform;
 	}
 	
 	// Update is called once per frame
@@ -64,7 +68,7 @@ public class Teleport : MonoBehaviour {
 
             laser.SetActive(false);
             shouldTeleport = false;
-            //reticle.SetActive(false);
+            reticle.SetActive(false);
         }
     }
 
@@ -72,17 +76,17 @@ public class Teleport : MonoBehaviour {
     void TeleportPointer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100))
+        if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100, teleportMask))
         {
             hitPoint = hit.point;
             ShowLaser(hit);
             shouldTeleport = true;
-            //reticle.SetActive(true);
+            reticle.SetActive(true);
         } else
         {
             laser.SetActive(false);
             shouldTeleport = false;
-            //reticle.SetActive(false);
+            reticle.SetActive(false);
         }
     }
 
