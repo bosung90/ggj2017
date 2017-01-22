@@ -184,6 +184,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: PlayHitSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: bfb3a0627c31db047a5b7199c0aa4d4e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
