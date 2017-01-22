@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: shot_mat
+  m_Name: VolumetricShotMaterial
   m_Shader: {fileID: 4800000, guid: 2d9a4ca4b2730b64e8aade7030f8caeb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -24,14 +24,14 @@ Material:
     m_Floats:
     - first:
         name: _LightSaberFactor
-      second: 0.46428573
+      second: 0
     - first:
         name: _LineScale
       second: 1
     - first:
         name: _LineWidth
-      second: 17
+      second: 0.15
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 0, b: 0, a: 1}
+      second: {r: 0, g: 1, b: 0.2551725, a: 1}

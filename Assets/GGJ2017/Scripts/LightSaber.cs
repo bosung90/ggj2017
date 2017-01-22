@@ -55,6 +55,8 @@ public class LightSaber : MonoBehaviour {
         {
             GameObject laser = Instantiate(Laser);
             laser.transform.position = this.transform.position;
+            laser.transform.rotation = this.transform.rotation;
+            Destroy(laser, 4f);
         }).AddTo(this);
     }
 
