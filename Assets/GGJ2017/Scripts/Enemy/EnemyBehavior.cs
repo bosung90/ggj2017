@@ -24,12 +24,12 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
         // Make sure that player exists
-        if(Player != null)
+        if (Player != null)
         {
             playerFeet = new Vector3(Player.position.x, 0, Player.position.z);
-
+            
             // Always look at Player
             transform.LookAt(playerFeet);
 
@@ -38,7 +38,8 @@ public class EnemyBehavior : MonoBehaviour {
             */
             if (Vector3.Distance(transform.position, playerFeet) <= AttackRange)
             {
-                if (anim.GetBool("Moving") && anim.GetBool("Running")) {
+                if (anim.GetBool("Moving") && anim.GetBool("Running"))
+                {
                     anim.SetBool("Moving", false);
                     anim.SetBool("Running", false);
                 }
@@ -48,9 +49,11 @@ public class EnemyBehavior : MonoBehaviour {
                 {
                    transform.position = (transform.position - playerFeet).normalized * MinRange + playerFeet;
                 }
-                
+
                 anim.SetTrigger("Attack1Trigger");
-            } else
+
+            }
+            else
             // If enemy is not close, move towards player
             {
                 // Assumes always looking at player and moves towards them
@@ -74,9 +77,13 @@ public class EnemyBehavior : MonoBehaviour {
             ****/
 
         }
+    }
 
-        
-	}
+    void AttackPlayer()
+    {
+        Debug.Log("Attack player!");
+        Player.GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
+    }
 
     //// Function for taking damage
     //void TakeDamage(int damage)

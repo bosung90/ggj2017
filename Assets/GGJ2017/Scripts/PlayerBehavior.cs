@@ -15,8 +15,9 @@ public class PlayerBehavior : MonoBehaviour {
 		
 	}
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-
+        health -= damage;
+        Debug.Log("Player took 1 damage");
     }
 }
