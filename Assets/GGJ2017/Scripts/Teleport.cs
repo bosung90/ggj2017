@@ -74,15 +74,16 @@ public class Teleport : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100))
         {
+            reticle.SetActive(true);
             hitPoint = hit.point;
             ShowLaser(hit);
             shouldTeleport = true;
-            //reticle.SetActive(true);
+            reticle.SetActive(true);
         } else
         {
             laser.SetActive(false);
             shouldTeleport = false;
-            //reticle.SetActive(false);
+            reticle.SetActive(false);
         }
     }
 
@@ -93,6 +94,6 @@ public class Teleport : MonoBehaviour {
         laserTransform.LookAt(hitPoint);
         laserTransform.localScale = new Vector3(laserTransform.localScale.x, laserTransform.localScale.y, hit.distance);
 
-        //teleportReticleTransform.position = hitPoint + teleportReticleOffset;
+        teleportReticleTransform.position = hitPoint + teleportReticleOffset;
     }
 }
