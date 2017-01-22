@@ -11,7 +11,6 @@ public class LightSaber : MonoBehaviour {
     public ViveInput viveInput;
 
     public GameObject circularWave;
-
     public GameObject Laser;
 
     private CapsuleCollider _collider;
@@ -42,7 +41,6 @@ public class LightSaber : MonoBehaviour {
             {
                 collider.gameObject.SendMessage("TakeDamage", 10);
             }
-
         }).AddTo(this);
 
         viveInput.LightSaberLengthPercentObs.Subscribe(lengthPercent => {
