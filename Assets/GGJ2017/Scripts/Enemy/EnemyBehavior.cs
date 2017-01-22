@@ -21,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour {
 	void Start () {
         anim.SetBool("Moving", true);
         anim.SetBool("Running", true);
-        Player = GameObject.Find("Camera (head)").transform;
+        //Player = GameObject.Find("Camera (head)").transform;
 
     }
 	
