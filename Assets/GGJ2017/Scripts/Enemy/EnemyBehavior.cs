@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour {
 
     void Awake() {
         anim = GetComponent<Animator>();
+        Player = GameObject.Find("Player").transform;
     }
 
 	// Use this for initialization

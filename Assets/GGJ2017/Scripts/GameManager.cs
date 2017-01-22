@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
     public void Lose()
     {
         // Stop Enemy Spawn
-        GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawn");
+        //GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawn");
 
         // Destroy all current enemies
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
