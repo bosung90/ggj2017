@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
         currentScore.Value = 0;
         currentState.Value = GameState.PLAYING;
         GameObject newSpawn = Instantiate(spawnPoint, new Vector3(6.425321f, 1.0f, 50f), transform.rotation);
+        GameObject.Find("Player").GetComponent<PlayerBehavior>().health = 10;
     }
 
 	public void setScore(float newVal) {
