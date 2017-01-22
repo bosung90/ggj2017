@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour {
         currentState.Value = GameState.LOSE;
 		currentScore.Subscribe(score => {
 			ScoreManager.instance.incrementScore(score);
-			Spawnpoint.instance.currentScore += score;
 		});
 		currentState.Subscribe (state => {
 			switch(state) {
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour {
 
 	public void setScore(float newVal) {
         Debug.Log(newVal);
-		currentScore.Value += newVal;
+		currentScore.Value += (int) newVal;
         Debug.Log(currentScore.Value);
 	}
 

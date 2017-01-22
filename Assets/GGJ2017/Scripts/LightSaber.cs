@@ -12,6 +12,8 @@ public class LightSaber : MonoBehaviour {
 
     public GameObject circularWave;
 
+    public GameObject Laser;
+
     private CapsuleCollider _collider;
     private Renderer _renderer;
     private float originalLightSaverFactor;
@@ -47,6 +49,12 @@ public class LightSaber : MonoBehaviour {
             var lightSaberLength = lightSaberFullLength * lengthPercent;
             _collider.height = lightSaberLength;
             line.EndPos = new Vector3(0, 0, lightSaberLength);
+        }).AddTo(this);
+
+        viveInput.FireLaser.Subscribe(_ =>
+        {
+            GameObject laser = Instantiate(Laser);
+            laser.transform.position = this.transform.position;
         }).AddTo(this);
     }
 

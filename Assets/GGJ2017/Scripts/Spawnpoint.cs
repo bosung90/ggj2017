@@ -12,8 +12,6 @@ public class Spawnpoint : MonoBehaviour {
     public GameObject spawnObj;
     public GameObject teleportPS;
 
-	public float currentScore = 0.0f;
-
 	void Awake () {
 		instance = this;
 	}
@@ -29,6 +27,7 @@ public class Spawnpoint : MonoBehaviour {
 
     void spawn ()
     {
+        int currentScore = (GameManager.Instance) ? GameManager.Instance.currentScore.Value : 0;
 		float statMultiplyer = 1.0f;
 		if (currentScore >= 40) {
 			statMultiplyer = 1.5f;

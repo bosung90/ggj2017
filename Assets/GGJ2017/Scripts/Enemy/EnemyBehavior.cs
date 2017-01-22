@@ -21,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Color color;
+        Color color = Color.blue;
 		if (statMultiplyer >= 1.5f) {
 			color = Color.grey;
 		} else if (statMultiplyer >= 1.4f) {
@@ -31,7 +31,7 @@ public class EnemyBehavior : MonoBehaviour {
 		} else if (statMultiplyer >= 1.1f) {
 			color = Color.yellow;
 		}
-		transform.GetComponent<Renderer>().material.SetColor("_Color", color);
+		transform.gameObject.GetComponentInChildren<Renderer>().material.SetColor("_Color", color);
 		MoveSpeed *= statMultiplyer;
 		AttackRange *= statMultiplyer;
 		MinRange *= statMultiplyer;
@@ -100,7 +100,7 @@ public class EnemyBehavior : MonoBehaviour {
     void AttackPlayer()
     {
         Debug.Log("Attack player!");
-        GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
+        GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage((int)AttackDamage);
     }
 
     //// Function for taking damage

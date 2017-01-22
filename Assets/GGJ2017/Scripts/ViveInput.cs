@@ -22,6 +22,14 @@ public class ViveInput : MonoBehaviour {
     public IObservable<float> LightSaberLengthPercentObs { get; private set; }
     public IObservable<Unit> ExplodeSaber { get; private set; }
 
+    public IObservable<Unit> FireLaser
+    {
+        get
+        {
+            return hairTriggerDown;
+        }
+    }
+
     void Awake() {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
 
