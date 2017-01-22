@@ -83,7 +83,7 @@ public class EnemyBehavior : MonoBehaviour {
     void AttackPlayer()
     {
         Debug.Log("Attack player!");
-        //GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
+        GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage(AttackDamage);
     }
 
     //// Function for taking damage

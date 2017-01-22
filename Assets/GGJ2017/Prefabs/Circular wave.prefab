@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4510317003471958}
   - component: {fileID: 198168322406762864}
   - component: {fileID: 199176860369757498}
+  - component: {fileID: 135970800394909640}
   m_Layer: 0
   m_Name: Circular wave
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 92.539, y: -0.000015258789, z: -0.000015258789}
+--- !u!135 &135970800394909640
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045798156719442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198168322406762864
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2280,7 +2293,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
-    enabled: 0
+    enabled: 1
     collisionShape0: {fileID: 0}
     collisionShape1: {fileID: 0}
     collisionShape2: {fileID: 0}
