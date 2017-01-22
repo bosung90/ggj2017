@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 public class LightSaber : MonoBehaviour {
 
+    public List<AudioClip> enemyHits;
+    private AudioSource audioSource;
+
     [Range(0, 2f)]
     public float lightSaberFullLength = 0.7f;
     public ViveInput viveInput;
@@ -22,8 +25,6 @@ public class LightSaber : MonoBehaviour {
     private VolumetricLineBehavior line;
     private ObservableTriggerTrigger triggerTrigger;
 
-    private AudioSource[] audioSources;
-
     void Awake() {
         line = GetComponent<VolumetricLineBehavior>();
         triggerTrigger = GetComponent<ObservableTriggerTrigger>();
@@ -31,7 +32,7 @@ public class LightSaber : MonoBehaviour {
         _collider = GetComponent<CapsuleCollider>();
         originalLightSaverFactor = _renderer.material.GetFloat("_LightSaberFactor");
         originalLightSaverLineWidth = _renderer.material.GetFloat("_LineWidth");
-        audioSources = GetComponents<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start() {
@@ -43,7 +44,11 @@ public class LightSaber : MonoBehaviour {
             Debug.Log("Collided with tag " + collider.tag);
             if(collider.tag == "Enemy")
             {
-                audioSources[UnityEngine.Random.Range(0, audioSources.Length)].Play();
+                AudioClip clip = enemyHits[UnityEngine.Random.Range(0, enemyHits.Count)];
+                audioSource.clip = clip;
+                audioSource.time = 0.3f;
+                audioSource.Play();
+
                 collider.gameObject.SendMessage("TakeDamage", 10);
             }
         }).AddTo(this);

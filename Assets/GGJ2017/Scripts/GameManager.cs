@@ -67,9 +67,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void setScore(float newVal) {
-        Debug.Log(newVal);
         currentScore.Value += (int)newVal;
-        Debug.Log(currentScore.Value);
     }
 
     public void Lose() {

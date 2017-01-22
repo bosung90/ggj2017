@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class EnemyHealth : MonoBehaviour {
 
+    public List<AudioClip> ninjaExplodes;
+
     [Range(20f, 100f)]
     public float Health = 100f;
 
@@ -11,6 +13,12 @@ public class EnemyHealth : MonoBehaviour {
 	public List<ParticleCollisionEvent> collisionEvents;
 
 	public GameObject bloodFX;
+
+    private AudioSource audioSource;
+
+    private void Awake() {
+        audioSource = GameObject.Find("[CameraRig]").GetComponent<AudioSource>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -25,10 +33,13 @@ public class EnemyHealth : MonoBehaviour {
 
     // Function for taking damage
     IEnumerator TakeDamage(int damage) {
-        Debug.Log("Ahhh it hurts took " + damage + " I have health: " + this.Health);
         this.Health -= damage;
 
         if (this.Health <= 0) {
+            AudioClip clip = ninjaExplodes[Random.Range(0, ninjaExplodes.Count)];
+            audioSource.clip = clip;
+            audioSource.Play();
+
             GameManager.Instance.setScore(1.0f);
             Destroy(transform.parent.gameObject);
             yield return null;
@@ -39,7 +50,6 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     void OnParticleCollision(GameObject other) {
-        Debug.LogWarning("OnParticleCollision");
 
 		//if too much blood is instantiated, limit this by creating a flag that will spawn the bloodFX once every 2 seconds or sth
 		//int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
