@@ -1,4 +1,5 @@
-﻿using UniRx;
+﻿using System;
+using UniRx;
 using UnityEngine;
 
 public class ViveInput : MonoBehaviour {
@@ -16,6 +17,7 @@ public class ViveInput : MonoBehaviour {
     public IObservable<Unit> applicationButton { get; private set; }
     private IObservable<Vector2> touchPadAxis;
 
+    private bool isExplodeSaberCooldown = false;
     private float lightSaberLengthPercent = 1f;
     public IObservable<float> LightSaberLengthPercentObs { get; private set; }
     public IObservable<Unit> ExplodeSaber { get; private set; }
@@ -63,13 +65,12 @@ public class ViveInput : MonoBehaviour {
             .EveryUpdate()
             .Select(_ => Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
             .Do(touchDown => {
-                if (touchDown) {
+                if (touchDown && !isExplodeSaberCooldown) {
                     lightSaberLengthPercent -= 1f * Time.deltaTime;
                     if (lightSaberLengthPercent < 0f) lightSaberLengthPercent = 0f;
                 } else {
                     lightSaberLengthPercent += 1f * Time.deltaTime;
                     if (lightSaberLengthPercent > 1f) lightSaberLengthPercent = 1f;
-
                 }
             })
             .Select(_ => lightSaberLengthPercent)
@@ -80,6 +81,8 @@ public class ViveInput : MonoBehaviour {
             .Where(_ => Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
             .Where(_ => lightSaberLengthPercent == 0f)
             .Do(_ => lightSaberLengthPercent = 1f)
+            .Do(_ => isExplodeSaberCooldown = true)
+            .Do(_ => Observable.Timer(TimeSpan.FromMilliseconds(10000f)).Subscribe(__ => isExplodeSaberCooldown = false))
             .AsUnitObservable();
     }
 }

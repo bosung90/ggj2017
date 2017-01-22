@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 
-    private int Health = 100;
+    [Range(20f, 100f)]
+    public float Health = 100f;
 	// Use this for initialization
 	void Start () {
         
@@ -17,20 +17,20 @@ public class EnemyHealth : MonoBehaviour {
 
     // Function for taking damage
     IEnumerator TakeDamage(int damage) {
-        Debug.Log("Ahhh it hurts took " + damage);
+        Debug.Log("Ahhh it hurts took " + damage + " I have health: " + this.Health);
         this.Health -= damage;
 
-        //renderer.material.color = colors[0];
-        //yield WaitForSeconds(.5);
-        //renderer.material.color = colors[1];
+        if (this.Health <= 0) {
+            Destroy(transform.parent.gameObject);
+            yield return null;
+        }
         transform.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         yield return new WaitForSeconds(1);
         transform.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+    }
 
-        if (this.Health <= 0)
-        {
-            GameManager.Instance.setScore(1.0f);
-            Destroy(transform.parent.gameObject);
-        }
+    void OnParticleCollision(GameObject other) {
+        Debug.LogWarning("OnParticleCollision");
+        StartCoroutine(TakeDamage(30));
     }
 }
