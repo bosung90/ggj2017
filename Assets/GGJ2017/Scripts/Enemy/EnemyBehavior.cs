@@ -2,7 +2,7 @@
 
 public class EnemyBehavior : MonoBehaviour {
 
-    public Transform Player;
+    private Transform Player;
     private Vector3 playerFeet;
     private Animator anim;
     // Enemy Info
@@ -20,6 +20,8 @@ public class EnemyBehavior : MonoBehaviour {
 	void Start () {
         anim.SetBool("Moving", true);
         anim.SetBool("Running", true);
+        Player = GameObject.Find("Camera (head)").transform;
+
     }
 	
 	// Update is called once per frame
