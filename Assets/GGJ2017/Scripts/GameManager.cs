@@ -6,6 +6,9 @@ public enum GameState { PLAYING, NOT_PLAYING };
 
 public class GameManager : MonoBehaviour {
 
+    private Vector3 playerInitPos;
+    private Quaternion playerInitRotation;
+
     public static GameManager Instance;
     public GameObject spawnPoint;
     public GameObject FlyingSpawnPoint;
@@ -30,6 +33,9 @@ public class GameManager : MonoBehaviour {
                 case GameState.NOT_PLAYING: Lose(); break;
             }
         });
+
+        playerInitPos = PlayerBehavior.Instance.transform.FindChild("[CameraRig]").position;
+        playerInitRotation = PlayerBehavior.Instance.transform.FindChild("[CameraRig]").rotation;
     }
 
     // Update is called once per frame
@@ -38,6 +44,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
+
+        
+
         currentScore.Value = 0;
         currentState.Value = GameState.PLAYING;
 
@@ -67,6 +76,9 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Lose() {
+        PlayerBehavior.Instance.transform.FindChild("[CameraRig]").position = playerInitPos;
+        PlayerBehavior.Instance.transform.FindChild("[CameraRig]").rotation = playerInitRotation;
+
         currentState.Value = GameState.NOT_PLAYING;
         // Stop Enemy Spawn
         GameObject[] spawn = GameObject.FindGameObjectsWithTag("spawn");
