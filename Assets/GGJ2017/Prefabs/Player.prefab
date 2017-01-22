@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 114445518199653214}
   m_Layer: 0
   m_Name: LightSaber
-  m_TagString: Untagged
+  m_TagString: lightSaber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 136109653431467758}
   m_Layer: 0
   m_Name: LightSaber
-  m_TagString: Untagged
+  m_TagString: lightSaber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1096,8 +1096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114378272748539764}
-  circularWave: {fileID: 1045798156719442, guid: 615eb25e6d45cc04dbe55d5fc11829b7,
-    type: 2}
+  circularWave: {fileID: 0}
+  Laser: {fileID: 0}
 --- !u!114 &114629792905893706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1156,8 +1156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114932582401725976}
-  circularWave: {fileID: 1045798156719442, guid: 615eb25e6d45cc04dbe55d5fc11829b7,
-    type: 2}
+  circularWave: {fileID: 0}
+  Laser: {fileID: 0}
 --- !u!114 &114747690283234094
 MonoBehaviour:
   m_ObjectHideFlags: 1
