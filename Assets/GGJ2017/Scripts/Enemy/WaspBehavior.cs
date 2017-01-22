@@ -18,6 +18,8 @@ public class WaspBehavior : MonoBehaviour {
     private IObservable<Unit> Fly;
     private IObservable<Unit> Attack;
 
+    private AudioSource waspAttack;
+
     public float statMultiplyer = 1.0f;
     // Enemy Info
     public float MoveSpeed = 10;
@@ -33,6 +35,7 @@ public class WaspBehavior : MonoBehaviour {
     void Awake() {
         anim = GetComponent<Animator>();
         Player = GameObject.Find("Camera (eye)").transform;
+        waspAttack = GetComponent<AudioSource>();
     }
     // Use this for initialization
     void Start() {
@@ -110,7 +113,7 @@ public class WaspBehavior : MonoBehaviour {
 
     void AttackPlayer() {
         Debug.Log("Attack player!");
-
+        waspAttack.Play();
         GameObject.Find("Player").GetComponent<PlayerBehavior>().TakeDamage((int)AttackDamage);
     }
 }

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class LightSaber : MonoBehaviour {
 
     public List<AudioClip> enemyHits, swishSounds;
-    private AudioSource audioSource, swishAudioSource;
+    private AudioSource audioSource, swishAudioSource, gunAudio, pulseExplosion;
 
     [Range(0, 2f)]
     public float lightSaberFullLength = 0.7f;
@@ -34,6 +34,8 @@ public class LightSaber : MonoBehaviour {
         originalLightSaverLineWidth = _renderer.material.GetFloat("_LineWidth");
         audioSource = GetComponents<AudioSource>()[0];
         swishAudioSource = GetComponents<AudioSource>()[1];
+        gunAudio = GetComponents<AudioSource>()[2];
+        pulseExplosion = GetComponents<AudioSource>()[3];
         swishAudioSource.clip = swishSounds[UnityEngine.Random.Range(0, swishSounds.Count)];
 
     }
@@ -70,6 +72,8 @@ public class LightSaber : MonoBehaviour {
         viveInput.FireLaser.Subscribe(_ =>
         {
             GameObject laser = Instantiate(Laser);
+            gunAudio.time = 0.3f;
+            gunAudio.Play();
             laser.transform.position = this.transform.position;
             laser.transform.rotation = this.transform.rotation;
             Destroy(laser, 4f);
@@ -80,7 +84,7 @@ public class LightSaber : MonoBehaviour {
         GameObject wave = Instantiate(circularWave);
         wave.transform.position = transform.position;
         Destroy(wave, wave.GetComponent<ParticleSystem>().main.duration);
-
+        pulseExplosion.Play();
         _renderer.material.SetFloat("_LightSaberFactor", 5f);
         _renderer.material.SetFloat("_LineWidth", 10f);
         Observable.Timer(TimeSpan.FromMilliseconds(200f)).Subscribe(_ => {
