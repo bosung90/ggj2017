@@ -19,5 +19,14 @@ public class PlayerBehavior : MonoBehaviour {
     {
         health -= damage;
         Debug.Log("Player took 1 damage");
+        if(health <= 0)
+        {
+            Lose();
+        }
+    }
+
+    private void Lose()
+    {
+
     }
 }
