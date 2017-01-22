@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour {
 
         if (this.Health == 0)
         {
+			GameManager.Instance.score += 1;
             Destroy(transform.parent.gameObject);
         }
     }

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+	public static GameManager Instance;
+
+	public float score {get; set;}
+
+	void Awake() {
+		Instance = this;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
