@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 136996160961849814}
   m_Layer: 0
   m_Name: Mesh_Ninja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +445,6 @@ GameObject:
   - component: {fileID: 95074003112757288}
   - component: {fileID: 114931541313729688}
   - component: {fileID: 114028873327290702}
-  - component: {fileID: 136398043023845658}
   m_Layer: 0
   m_Name: Ninja Warrior
   m_TagString: Enemy
@@ -1642,19 +1641,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95074003112757288}
   warrior: 0
---- !u!136 &136398043023845658
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1528130377378606}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.3528407
-  m_Height: 2.8183823
-  m_Direction: 1
-  m_Center: {x: 0.21105427, y: -0.3518464, z: 0.8076313}
 --- !u!136 &136996160961849814
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1662,7 +1648,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356235427554234}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.57
   m_Height: 1.76
