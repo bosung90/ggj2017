@@ -5,11 +5,12 @@ public class EnemyBehavior : MonoBehaviour {
     private Transform Player;
     private Vector3 playerFeet;
     private Animator anim;
+	public float statMultiplyer = 1.0f;
     // Enemy Info
     public float MoveSpeed = 10;
-    public int AttackRange = 4;
-    public int MinRange = 3;
-    public int AttackDamage = 1;
+	public float AttackRange = 4;
+	public float MinRange = 3;
+	public float AttackDamage = 1;
     //private int Health = 2;
 
     void Awake() {
@@ -19,6 +20,22 @@ public class EnemyBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Color color;
+		if (statMultiplyer >= 1.5f) {
+			color = Color.grey;
+		} else if (statMultiplyer >= 1.4f) {
+			color = Color.cyan;
+		} else if (statMultiplyer >= 1.3f) {
+			color = Color.green;
+		} else if (statMultiplyer >= 1.1f) {
+			color = Color.yellow;
+		}
+		transform.GetComponent<Renderer>().material.SetColor("_Color", color);
+		MoveSpeed *= statMultiplyer;
+		AttackRange *= statMultiplyer;
+		MinRange *= statMultiplyer;
+		AttackDamage *= statMultiplyer;
         anim.SetBool("Moving", true);
         anim.SetBool("Running", true);
     }

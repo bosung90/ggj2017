@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour {
     public GameObject spawnPoint;
 
 	public ReactiveProperty<GameState> currentState { get; private set; }
-	public ReactiveProperty<float> currentScore { get; private set; }
+	public ReactiveProperty<int> currentScore { get; private set; }
 
 	void Awake() {
 		Instance = this;
 		currentState = new ReactiveProperty<GameState> ();
-		currentScore = new ReactiveProperty<float> ();
+		currentScore = new ReactiveProperty<int> ();
 	}
 
 	// Use this for initialization
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
         currentState.Value = GameState.LOSE;
 		currentScore.Subscribe(score => {
 			ScoreManager.instance.incrementScore(score);
+			Spawnpoint.instance.currentScore += score;
 		});
 		currentState.Subscribe (state => {
 			switch(state) {
