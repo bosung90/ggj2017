@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4294366066001402}
   - component: {fileID: 114353993319302874}
   - component: {fileID: 114378272748539764}
-  - component: {fileID: 114921010879076284}
+  - component: {fileID: 114435661361736192}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 4623032236147802}
   - component: {fileID: 114477249652369284}
   - component: {fileID: 114932582401725976}
-  - component: {fileID: 114584135790262202}
+  - component: {fileID: 114054843697316808}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -656,6 +656,28 @@ MonoBehaviour:
   separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
   chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
     type: 3}
+--- !u!114 &114054843697316808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131325646179666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230601cbe85496c4db1991ffc20bec70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viveInput: {fileID: 114932582401725976}
+  cameraRigTransform: {fileID: 4862488737680920}
+  teleportReticlePrefab: {fileID: 1639319533735882, guid: cfb27f702a3af894b918c1816366ee19,
+    type: 2}
+  headTransform: {fileID: 4643750425642730}
+  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
+  teleportMask:
+    serializedVersion: 2
+    m_Bits: 256
+  laserPrefab: {fileID: 1887670576476034, guid: 142878cd366849a4f8edc6a97481f258,
+    type: 2}
 --- !u!114 &114066625837561696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -981,6 +1003,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114435661361736192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1026718116438696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 230601cbe85496c4db1991ffc20bec70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viveInput: {fileID: 114378272748539764}
+  cameraRigTransform: {fileID: 4862488737680920}
+  teleportReticlePrefab: {fileID: 1639319533735882, guid: cfb27f702a3af894b918c1816366ee19,
+    type: 2}
+  headTransform: {fileID: 4643750425642730}
+  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
+  teleportMask:
+    serializedVersion: 2
+    m_Bits: 256
+  laserPrefab: {fileID: 1887670576476034, guid: 142878cd366849a4f8edc6a97481f258,
+    type: 2}
 --- !u!114 &114440541418982724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1052,27 +1096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114378272748539764}
---- !u!114 &114584135790262202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1131325646179666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 230601cbe85496c4db1991ffc20bec70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viveInput: {fileID: 114932582401725976}
-  cameraRigTransform: {fileID: 4862488737680920}
-  teleportReticlePrefab: {fileID: 0}
-  headTransform: {fileID: 4643750425642730}
-  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
-  teleportMask:
-    serializedVersion: 2
-    m_Bits: 0
-  laserPrefab: {fileID: 1887670576476034, guid: 142878cd366849a4f8edc6a97481f258,
-    type: 2}
+  circularWave: {fileID: 0}
 --- !u!114 &114629792905893706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1131,6 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114932582401725976}
+  circularWave: {fileID: 0}
 --- !u!114 &114747690283234094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1187,27 +1212,6 @@ MonoBehaviour:
   _head: {fileID: 4643750425642730}
   _ears: {fileID: 4230414895521520}
   wireframe: 0
---- !u!114 &114921010879076284
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1026718116438696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 230601cbe85496c4db1991ffc20bec70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viveInput: {fileID: 114378272748539764}
-  cameraRigTransform: {fileID: 4862488737680920}
-  teleportReticlePrefab: {fileID: 0}
-  headTransform: {fileID: 4643750425642730}
-  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
-  teleportMask:
-    serializedVersion: 2
-    m_Bits: 0
-  laserPrefab: {fileID: 1887670576476034, guid: 142878cd366849a4f8edc6a97481f258,
-    type: 2}
 --- !u!114 &114932582401725976
 MonoBehaviour:
   m_ObjectHideFlags: 1

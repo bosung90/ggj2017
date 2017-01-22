@@ -10,6 +10,8 @@ public class LightSaber : MonoBehaviour {
     public float lightSaberFullLength = 0.7f;
     public ViveInput viveInput;
 
+    public GameObject circularWave;
+
     private CapsuleCollider _collider;
     private Renderer _renderer;
     private float originalLightSaverFactor;
@@ -49,6 +51,10 @@ public class LightSaber : MonoBehaviour {
     }
 
     void FlashBang() {
+        GameObject wave = Instantiate(circularWave);
+        wave.transform.position = transform.position;
+        Destroy(wave, wave.GetComponent<ParticleSystem>().main.duration);
+
         _renderer.material.SetFloat("_LightSaberFactor", 5f);
         _renderer.material.SetFloat("_LineWidth", 10f);
         Observable.Timer(TimeSpan.FromMilliseconds(200f)).Subscribe(_ => {
