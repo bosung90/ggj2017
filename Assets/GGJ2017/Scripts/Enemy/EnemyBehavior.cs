@@ -94,11 +94,11 @@ public class EnemyBehavior : MonoBehaviour {
     //    this.Health -= damage;
     //}
 
-    //// Function for dying
-    //void Death()
-    //{
-
-    //}
+    //// Function for Deleting Enemy
+    public void DestroyEnemy()
+    {
+        Destroy(transform.gameObject);
+    }
 
     //// Function for exploding
     //void Explode()
