@@ -42,26 +42,26 @@ public class EnemyHealth : MonoBehaviour {
         Debug.LogWarning("OnParticleCollision");
 
 		//if too much blood is instantiated, limit this by creating a flag that will spawn the bloodFX once every 2 seconds or sth
-		int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-		numCollisionEvents = (numCollisionEvents > 1) ? 1 : numCollisionEvents;
+		//int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+		//numCollisionEvents = (numCollisionEvents > 1) ? 1 : numCollisionEvents;
 
-		Rigidbody rb = other.GetComponent<Rigidbody>();
-		int i = 0;
+		//Rigidbody rb = other.GetComponent<Rigidbody>();
+		//int i = 0;
 
-		while (i < numCollisionEvents)
-		{
-			if (rb)
-			{
-				Vector3 pos = collisionEvents[i].intersection;
-				ParticleSystem.VelocityOverLifetimeModule bloodVelocity = 
-					bloodFX.GetComponent<ParticleSystem> ().velocityOverLifetime;
-				bloodVelocity.x = UnityEngine.Random.Range (0.0f, 10.0f);
-				bloodVelocity.y = UnityEngine.Random.Range (0.0f, 5.0f);
-				bloodVelocity.z = UnityEngine.Random.Range (0.0f, -2.0f);
-				Instantiate (bloodFX, pos, Quaternion.identity);
-			}
-			i++;
-		}
+		//while (i < numCollisionEvents)
+		//{
+		//	if (rb)
+		//	{
+		//		Vector3 pos = collisionEvents[i].intersection;
+		//		ParticleSystem.VelocityOverLifetimeModule bloodVelocity = 
+		//			bloodFX.GetComponent<ParticleSystem> ().velocityOverLifetime;
+		//		bloodVelocity.x = UnityEngine.Random.Range (0.0f, 10.0f);
+		//		bloodVelocity.y = UnityEngine.Random.Range (0.0f, 5.0f);
+		//		bloodVelocity.z = UnityEngine.Random.Range (0.0f, -2.0f);
+		//		Instantiate (bloodFX, pos, Quaternion.identity);
+		//	}
+		//	i++;
+		//}
 
 		StartCoroutine(TakeDamage(30));
     }

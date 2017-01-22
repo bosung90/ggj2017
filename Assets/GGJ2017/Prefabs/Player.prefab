@@ -1096,8 +1096,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114378272748539764}
-  circularWave: {fileID: 0}
-  Laser: {fileID: 0}
+  circularWave: {fileID: 1045798156719442, guid: 615eb25e6d45cc04dbe55d5fc11829b7,
+    type: 2}
+  Laser: {fileID: 1612233468666368, guid: 54b13ffe87af2de4cb1c82900ce2be22, type: 2}
 --- !u!114 &114629792905893706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1156,8 +1157,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSaberFullLength: 1
   viveInput: {fileID: 114932582401725976}
-  circularWave: {fileID: 0}
-  Laser: {fileID: 0}
+  circularWave: {fileID: 1045798156719442, guid: 615eb25e6d45cc04dbe55d5fc11829b7,
+    type: 2}
+  Laser: {fileID: 1612233468666368, guid: 54b13ffe87af2de4cb1c82900ce2be22, type: 2}
 --- !u!114 &114747690283234094
 MonoBehaviour:
   m_ObjectHideFlags: 1
