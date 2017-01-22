@@ -34,6 +34,7 @@ public class PlayerBehavior : MonoBehaviour {
         Debug.Log("Player took 1 damage");
         if(health <= 0)
         {
+			GameManager.Instance.Lose ();
             playerDamaged.OnNext(Unit.Default);
             GameObject.Find("GameManager").GetComponent<GameManager>().Lose();
         } else {
