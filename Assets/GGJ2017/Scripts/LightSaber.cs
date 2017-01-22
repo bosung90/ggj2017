@@ -36,7 +36,7 @@ public class LightSaber : MonoBehaviour {
             Debug.Log("Collided with tag " + collider.tag);
             if(collider.tag == "Enemy")
             {
-                collider.gameObject.transform.Find("Mesh_Ninja").gameObject.SendMessage("TakeDamage", 10);
+                collider.gameObject.SendMessage("TakeDamage", 10);
             }
 
         }).AddTo(this);
